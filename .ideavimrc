@@ -1,0 +1,21 @@
+" Set leader to <space>
+let mapleader = " "
+
+" Set relative line numbers
+set relativenumber number
+
+" Highlight search results
+:set hlsearch
+:set ignorecase
+:set smartcase
+
+" clear search highlight
+nnoremap <silent> <leader><space> :nohlsearch<CR>
+
+" Centralize screen after moving
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+
+" Source .ideavimrc
+nnoremap <leader>si :source ~/.ideavimrc<CR>
+
