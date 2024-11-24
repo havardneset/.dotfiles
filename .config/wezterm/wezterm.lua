@@ -52,7 +52,7 @@ wezterm.on("update-status", function(window, pane)
 		overrides.window_padding = {
 			left = 0,
 			right = 0,
-			top = 0,
+			top = padding.top,
 			bottom = 0,
 		}
 	else

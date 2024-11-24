@@ -10,7 +10,7 @@ set relativenumber number
 :set smartcase
 
 " clear search highlight
-nnoremap <silent> <leader><space> :nohlsearch<CR>
+nnoremap <Esc> :nohlsearch<CR>
 
 " Centralize screen after moving
 nmap <C-d> <C-d>zz
