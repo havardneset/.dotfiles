@@ -81,7 +81,7 @@ _fzf_comprun() {
 
 # Set nvim as default editor for k9s
 export KUBE_EDITOR=nvim
-export K9S_CONFIG_DIR=".config/k9s"
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
 # replace cd with zoxide
 eval "$(zoxide init zsh --cmd cd)"
