@@ -17,6 +17,8 @@ k9s:
         bgColor: default
     logs:
       bgColor: default
+      indicator:
+        bgColor: default
     help:
       bgColor: default
 
