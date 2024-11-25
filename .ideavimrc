@@ -5,7 +5,7 @@ let mapleader = " "
 set relativenumber number
 
 " Map telescope actions to IntelliJ actions
-nnoremap <leader>ff :action SearchEverywhere<CR>
+nnoremap <leader>sf :action SearchEverywhere<CR>
 nnoremap <leader>sg :action FindInPath<CR>
 
 " Highlight search results
