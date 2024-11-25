@@ -66,7 +66,9 @@ vim.api.nvim_create_user_command('JwtDecodeBuffer', function()
   -- Display the result in a new buffer
   if result and result ~= '' then
     vim.cmd 'new' -- Open a new split window
-    vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(result, '\n'))
+    local buf = vim.api.nvim_get_current_buf()
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(result, '\n'))
+    vim.api.nvim_set_option_value('filetype', 'json', { buf = buf })
   else
     print 'Failed to decode the JWT.'
   end
