@@ -4,6 +4,7 @@ views:
       - NAMESPACE
       - NAME
       - STATUS
+      - AGE
       - RESTARTS
       - CPU
       - MEM
@@ -12,4 +13,3 @@ views:
       - "%MEM/R"
       - "%MEM/L"
       - IP
-      - AGE
