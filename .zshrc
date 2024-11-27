@@ -19,26 +19,6 @@ source $ZSH/oh-my-zsh.sh
 
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
-# di-cli login for quickly setting the context
-login() {
-  local prefix=$1
-  local env=$2
-  local code=""
-
-  case "$prefix" in
-    c) code="2" ;; # commerce
-    f) code="1" ;; # foundations
-    *) echo "Invalid prefix. Use 'c' or 'f'."; return 1 ;;
-  esac
-
-  case "$env" in
-    dev) di aa "$code" 1 1 ;;
-    stg) di aa "$code" 2 1 ;;
-    prod) di aa "$code" 3 1 ;;
-    *) echo "Invalid environment. Use 'dev', 'stg', or 'prod'."; return 1 ;;
-  esac
-}
-
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
@@ -91,6 +71,9 @@ export BAT_THEME=zenburn
 
 # Eza (better ls)
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+# Aliases
+source $HOME/.aliases
 
 # P10K
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
