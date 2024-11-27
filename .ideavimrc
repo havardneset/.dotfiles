@@ -20,6 +20,8 @@ nnoremap <Esc> :nohlsearch<CR>
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
 
+" Map to reformat code
+map <leader>f :action ReformatCode<CR>
+
 " Source .ideavimrc
 nnoremap <leader>si :source ~/.ideavimrc<CR>
-
