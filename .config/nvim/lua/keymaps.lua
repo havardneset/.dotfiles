@@ -1,3 +1,12 @@
+-- Function to set key mappings
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend('force', options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -45,6 +54,19 @@ vim.keymap.set('n', '<leader>nl', ':NewLines<CR>')
 -- Centralize screen after moving
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
+
+-- Move selected lines with shift+j or shift+k
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- Tab to indent and Shift-Tab to unindent
+-- Normal mode mappings
+map('n', '<Tab>', '>>', { silent = true })
+map('n', '<S-Tab>', '<<', { silent = true })
+
+-- Visual mode mappings
+map('v', '<Tab>', '>gv', { silent = true })
+map('v', '<S-Tab>', '<gv', { silent = true })
 
 -- decode JWT tokens
 vim.api.nvim_create_user_command('JwtDecodeBuffer', function()
