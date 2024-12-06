@@ -17,11 +17,30 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+local function move_or_split(direction, split_type)
+  if vim.fn.winnr '$' > 1 then
+    vim.cmd('wincmd ' .. direction)
+  else
+    vim.cmd(split_type)
+    vim.cmd('wincmd ' .. direction)
+  end
+end
+
+vim.keymap.set('n', '<C-h>', function()
+  move_or_split('h', 'vsplit')
+end, { desc = 'Move focus to the left window or open a new one' })
+
+vim.keymap.set('n', '<C-l>', function()
+  move_or_split('l', 'vsplit')
+end, { desc = 'Move focus to the right window or open a new one' })
+
+vim.keymap.set('n', '<C-j>', function()
+  move_or_split('j', 'split')
+end, { desc = 'Move focus to the lower window or open a new one' })
+
+vim.keymap.set('n', '<C-k>', function()
+  move_or_split('k', 'split')
+end, { desc = 'Move focus to the upper window or open a new one' })
 
 -- Search and replace word under the cursor.
 vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
