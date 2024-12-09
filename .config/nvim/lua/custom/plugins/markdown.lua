@@ -10,19 +10,17 @@ return {
         -- Get the current line
         local line = vim.api.nvim_get_current_line()
 
-        -- Check if the line contains a checkbox and toggle it
+        -- Check if the line contains a checkbox
         if line:match '%[ %]' then
+          -- Replace [ ] with [x]
           line = line:gsub('%[ %]', '[x]')
         elseif line:match '%[x%]' then
+          -- Replace [x] with [ ]
           line = line:gsub('%[x%]', '[ ]')
-        else
-          return
         end
 
-        -- Use vim.cmd.normal to make this action repeatable with `.`
-        vim.cmd 'normal! "_dd' -- Delete the current line
-        vim.cmd('normal! O' .. line) -- Insert the modified line
-        vim.cmd 'normal! ==' -- Reindent (optional, if needed)
+        -- Set the modified line
+        vim.api.nvim_set_current_line(line)
       end, { desc = 'Toggle checkbox on the current line' })
 
       vim.keymap.set('n', '<leader>c', ':ToggleCheckbox<CR>', { desc = 'Toggle checkbox' })
