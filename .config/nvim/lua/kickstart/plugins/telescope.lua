@@ -115,6 +115,7 @@ return {
 
       vim.keymap.set('n', '<leader>st', function()
         builtin.live_grep {
+          cwd = '~/Documents/notes',
           default_text = '\\[ ]',
           prompt_title = 'Open tasks',
         }
