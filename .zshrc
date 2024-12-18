@@ -59,6 +59,10 @@ _fzf_comprun() {
   esac
 }
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # Set nvim as default editor for k9s
 export KUBE_EDITOR=nvim
 export K9S_CONFIG_DIR="$HOME/.config/k9s"

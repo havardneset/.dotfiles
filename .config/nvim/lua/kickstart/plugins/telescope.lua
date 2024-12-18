@@ -113,13 +113,13 @@ return {
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
-      vim.keymap.set('n', '<leader>st', function()
+      vim.keymap.set('n', '<leader>ot', function()
         builtin.live_grep {
           cwd = '~/Documents/notes',
           default_text = '\\[ ]',
           prompt_title = 'Open tasks',
         }
-      end, { desc = '[S]earch [T]asks' })
+      end, { desc = '[O]pen [T]asks' })
 
       vim.keymap.set('n', '<leader>sc', function()
         builtin.find_files { cwd = '~/.config' }
