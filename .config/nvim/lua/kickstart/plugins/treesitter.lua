@@ -20,6 +20,7 @@ return {
         'yaml',
         'json',
         'go',
+        'helm',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
