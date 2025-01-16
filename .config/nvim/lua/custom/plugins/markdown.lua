@@ -33,8 +33,8 @@ return {
         vim.cmd 'startinsert!'
       end, { desc = 'Add checkbox to current line' })
 
-      vim.keymap.set('n', '<leader>ac', ':AddCheckbox<CR>', { desc = 'Add checkbox' })
-      vim.keymap.set('n', '<leader>c', ':ToggleCheckbox<CR>', { desc = 'Toggle checkbox' })
+      vim.keymap.set('n', '<leader>ca', ':AddCheckbox<CR>', { desc = 'Add checkbox' })
+      vim.keymap.set('n', '<leader>cc', ':ToggleCheckbox<CR>', { desc = 'Toggle checkbox' })
     end,
   },
 }
