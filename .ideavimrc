@@ -7,6 +7,13 @@ set relativenumber number
 " Map telescope actions to IntelliJ actions
 nnoremap <leader>sf :action SearchEverywhere<CR>
 nnoremap <leader>sg :action FindInPath<CR>
+map <leader><leader> <action>(RecentFiles)
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+map <leader>gc <action>(CommentByLineComment)
+map <leader>a ggVG
 
 " Highlight search results
 :set hlsearch
