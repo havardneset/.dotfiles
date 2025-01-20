@@ -9,7 +9,7 @@ config.color_scheme = "Tokyo Night"
 
 -- Font
 config.font_size = 20
-config.font = wezterm.font("MesloLGS NF")
+config.font = wezterm.font_with_fallback({ "JetBrains Mono", "MesloLGS NF" })
 config.default_cursor_style = "SteadyUnderline"
 
 -- Window
