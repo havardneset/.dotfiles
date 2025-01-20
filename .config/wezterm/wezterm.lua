@@ -1,6 +1,9 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+-- FPS
+config.max_fps = 120
+
 -- Colors
 config.color_scheme = "Tokyo Night"
 
