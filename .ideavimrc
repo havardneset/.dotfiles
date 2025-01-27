@@ -12,8 +12,9 @@ nmap <leader>gd <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
 nmap <leader>gu <Action>(ShowUsages)
-map <leader>gc <action>(CommentByLineComment)
 map <leader>a ggVG
+
+vmap gc <action>(CommentByLineComment)
 
 " Highlight search results
 :set hlsearch
