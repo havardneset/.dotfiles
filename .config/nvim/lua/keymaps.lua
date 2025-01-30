@@ -14,6 +14,12 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Remap <C-i> so <Tab> doesn't interfere
+vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
+
+-- Remap R to replace current word
+vim.keymap.set('n', 'R', 'ciw', { noremap = true, silent = true })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -41,6 +47,9 @@ end, { desc = 'Move focus to the lower window or open a new one' })
 vim.keymap.set('n', '<C-k>', function()
   move_or_split('k', 'split')
 end, { desc = 'Move focus to the upper window or open a new one' })
+
+-- Paste without overriding the current register
+vim.keymap.set('x', '<leader>p', '"_dP', { noremap = true })
 
 -- Search and replace word under the cursor.
 vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
