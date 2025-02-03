@@ -15,6 +15,7 @@ nmap <leader>gu <Action>(ShowUsages)
 map <leader>a ggVG
 
 vmap gc <action>(CommentByLineComment)
+nnoremap <leader>ca :action ShowIntentionActions<CR>
 
 " Highlight search results
 :set hlsearch
@@ -23,6 +24,8 @@ vmap gc <action>(CommentByLineComment)
 
 " clear search highlight
 nnoremap <Esc> :nohlsearch<CR>
+
+nnoremap R ciw
 
 " Centralize screen after moving
 nmap <C-d> <C-d>zz
