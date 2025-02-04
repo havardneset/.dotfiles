@@ -17,9 +17,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Remap <C-i> so <Tab> doesn't interfere
 vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
 
--- Remap R to replace current word
-vim.keymap.set('n', 'R', 'ciw', { noremap = true, silent = true })
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --

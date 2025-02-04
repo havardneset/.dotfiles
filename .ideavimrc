@@ -28,8 +28,6 @@ nnoremap <leader>ca :action ShowIntentionActions<CR>
 " clear search highlight
 nnoremap <Esc> :nohlsearch<CR>
 
-nnoremap R ciw
-
 " Centralize screen after moving
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
