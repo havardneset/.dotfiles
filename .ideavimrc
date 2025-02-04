@@ -4,6 +4,9 @@ let mapleader = " "
 " Set relative line numbers
 set relativenumber number
 
+" Set clipboard to system clipboard
+set clipboard=unnamedplus
+
 " Map telescope actions to IntelliJ actions
 nnoremap <leader>sf :action SearchEverywhere<CR>
 nnoremap <leader>sg :action FindInPath<CR>
@@ -34,5 +37,21 @@ nmap <C-u> <C-u>zz
 " Map to reformat code
 map <leader>f :action ReformatCode<CR>
 
+" Map to rename element
+map <leader>r <Action>(RenameElement)
+
+" breakpoints
+map <leader>ub <Action>(ToggleLineBreakpoint)
+map <leader>us <Action>(ViewBreakpoints)
+map <leader>ur <Action>(Debugger.RemoveAllBreakpoints)
+
+" copy whole file
+nmap <C-a> ggVG"+y
+
 " Source .ideavimrc
 nnoremap <leader>si :source ~/.ideavimrc<CR>
+
+" Plugins
+set mini-ai
+Plug 'machakann/vim-highlightedyank'
+
