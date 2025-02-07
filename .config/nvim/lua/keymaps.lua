@@ -13,6 +13,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- Navigate between LSP diagnostics (errors/warnings)
+vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next, { desc = 'Go to next LSP error' })
+vim.keymap.set('n', '<leader>p', vim.diagnostic.goto_prev, { desc = 'Go to previous LSP error' })
 
 -- Remap <C-i> so <Tab> doesn't interfere
 vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })

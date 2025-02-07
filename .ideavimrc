@@ -15,9 +15,10 @@ nmap <leader>gd <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
 nmap <leader>gu <Action>(ShowUsages)
-map <leader>a ggVG
 
+" Commenting
 vmap gc <action>(CommentByLineComment)
+nmap gcc <action>(CommentByLineComment)
 nnoremap <leader>ca :action ShowIntentionActions<CR>
 
 " Highlight search results
@@ -43,8 +44,13 @@ map <leader>ub <Action>(ToggleLineBreakpoint)
 map <leader>us <Action>(ViewBreakpoints)
 map <leader>ur <Action>(Debugger.RemoveAllBreakpoints)
 
-" copy whole file
-nmap <C-a> ggVG"+y
+" Run and debug
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>rd :action Debug<CR>
+nnoremap <leader>rs :action Stop<CR>
+
+map <leader>n :action GotoNextError<CR>
+map <leader>p :action GotoPreviousError<CR>
 
 " Source .ideavimrc
 nnoremap <leader>si :source ~/.ideavimrc<CR>
