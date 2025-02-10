@@ -49,8 +49,8 @@ nnoremap <leader>rr :action Run<CR>
 nnoremap <leader>rd :action Debug<CR>
 nnoremap <leader>rs :action Stop<CR>
 
-map <leader>n :action GotoNextError<CR>
-map <leader>p :action GotoPreviousError<CR>
+map <leader>xn :action GotoNextError<CR>
+map <leader>xp :action GotoPreviousError<CR>
 
 " Source .ideavimrc
 nnoremap <leader>si :source ~/.ideavimrc<CR>
