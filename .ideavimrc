@@ -33,6 +33,12 @@ nnoremap <Esc> :nohlsearch<CR>
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
 
+" Map Ctrl+h to move to the left tab
+nnoremap <C-h> :tabprevious<CR>
+
+" Map Ctrl+l to move to the right tab
+nnoremap <C-l> :tabnext<CR>
+
 " Map to reformat code
 map <leader>f :action ReformatCode<CR>
 
