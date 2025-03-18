@@ -14,8 +14,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 -- Navigate between LSP diagnostics (errors/warnings)
-vim.keymap.set('n', '<leader>xn', vim.diagnostic.goto_next, { desc = 'Go to next LSP error' })
-vim.keymap.set('n', '<leader>xp', vim.diagnostic.goto_prev, { desc = 'Go to previous LSP error' })
+vim.keymap.set('n', '<leader>en', vim.diagnostic.goto_next, { desc = 'Go to next LSP error' })
+vim.keymap.set('n', '<leader>ep', vim.diagnostic.goto_prev, { desc = 'Go to previous LSP error' })
 
 -- Remap <C-i> so <Tab> doesn't interfere
 vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
@@ -50,6 +50,12 @@ end, { desc = 'Move focus to the upper window or open a new one' })
 
 -- Paste without overriding the current register
 vim.keymap.set('x', '<leader>p', '"_dP', { noremap = true })
+
+-- Remap 'c' to use the black hole register so it doesn't overwrite the unnamed register
+vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true })
+vim.api.nvim_set_keymap('n', 'C', '"_C', { noremap = true })
+vim.api.nvim_set_keymap('n', 'cc', '"_cc', { noremap = true })
+vim.api.nvim_set_keymap('v', 'c', '"_c', { noremap = true })
 
 -- Search and replace word under the cursor.
 vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])

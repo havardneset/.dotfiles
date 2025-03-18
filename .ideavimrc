@@ -1,4 +1,4 @@
-" Set leader to <space>
+
 let mapleader = " "
 
 " Set relative line numbers
@@ -39,6 +39,12 @@ nnoremap <C-h> :tabprevious<CR>
 " Map Ctrl+l to move to the right tab
 nnoremap <C-l> :tabnext<CR>
 
+" Remap 'c' to prevent it from overwriting the unnamed register
+nnoremap c "_c
+nnoremap C "_C
+nnoremap cc "_cc
+vnoremap c "_c
+
 " Map to reformat code
 map <leader>f :action ReformatCode<CR>
 
@@ -55,8 +61,8 @@ nnoremap <leader>rr :action Run<CR>
 nnoremap <leader>rd :action Debug<CR>
 nnoremap <leader>rs :action Stop<CR>
 
-map <leader>xn :action GotoNextError<CR>
-map <leader>xp :action GotoPreviousError<CR>
+map <leader>en :action GotoNextError<CR>
+map <leader>ep :action GotoPreviousError<CR>
 
 " Source .ideavimrc
 nnoremap <leader>si :source ~/.ideavimrc<CR>
