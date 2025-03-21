@@ -54,7 +54,8 @@ local padding = {
 
 wezterm.on("update-status", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
-	if string.find(pane:get_title(), "^n-vi-m-.*") then
+	local title = pane.get_title()
+	if string.find(title, "^n-vi-m-") or title == "n" or title == "nvim" then
 		overrides.window_padding = {
 			left = 0,
 			right = 0,
