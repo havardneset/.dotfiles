@@ -17,6 +17,11 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<leader>en', vim.diagnostic.goto_next, { desc = 'Go to next LSP error' })
 vim.keymap.set('n', '<leader>ep', vim.diagnostic.goto_prev, { desc = 'Go to previous LSP error' })
 
+-- Manipulate quickfix list
+vim.api.nvim_set_keymap('n', '<leader>eq', ':cexpr []<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>eo', ':copen<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ec', ':cclose<CR>', { noremap = true, silent = true })
+
 -- Remap <C-i> so <Tab> doesn't interfere
 vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
 
@@ -84,10 +89,6 @@ vim.api.nvim_create_user_command('NewLines', function()
 end, {})
 
 vim.keymap.set('n', '<leader>nl', ':NewLines<CR>')
-
--- Centralize screen after moving
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 
 -- Move selected lines with shift+j or shift+k
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
