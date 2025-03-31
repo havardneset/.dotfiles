@@ -69,4 +69,8 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Show diagnostic lines over several lines
+vim.diagnostic.config {
+  virtual_lines = true,
+}
 -- vim: ts=2 sts=2 sw=2 et
