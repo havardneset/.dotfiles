@@ -47,6 +47,21 @@ nnoremap C "_C
 nnoremap cc "_cc
 vnoremap c "_c
 
+" Start of line (like ^)
+nmap gh ^
+vmap gh ^
+omap gh ^
+
+" End of line (like $)
+nmap gl $
+vmap gl $
+omap gl $
+
+" Matching pair (like %)
+nmap gj %
+vmap gj %
+omap gj %
+
 " Map to reformat code
 map <leader>f :action ReformatCode<CR>
 
