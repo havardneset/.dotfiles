@@ -25,6 +25,10 @@ vim.api.nvim_set_keymap('n', '<leader>ec', ':cclose<CR>', { noremap = true, sile
 -- Remap <C-i> so <Tab> doesn't interfere
 vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
 
+vim.keymap.set({ 'n', 'v', 'o' }, 'gh', '^')
+vim.keymap.set({ 'n', 'v', 'o' }, 'gl', '$')
+vim.keymap.set({ 'n', 'v', 'o' }, 'gj', '%')
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -89,10 +93,6 @@ vim.api.nvim_create_user_command('NewLines', function()
 end, {})
 
 vim.keymap.set('n', '<leader>nl', ':NewLines<CR>')
-
--- Move selected lines with shift+j or shift+k
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Tab to indent and Shift-Tab to unindent
 -- Normal mode mappings
