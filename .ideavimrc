@@ -11,6 +11,7 @@ xnoremap p "_dP
 
 " Map telescope actions to IntelliJ actions
 nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>sf :action SearchEverywhere<CR>
 map <leader><leader> <action>(RecentFiles)
 nmap <leader>gd <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
