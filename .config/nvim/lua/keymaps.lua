@@ -58,7 +58,7 @@ vim.keymap.set('n', '<C-k>', function()
 end, { desc = 'Move focus to the upper window or open a new one' })
 
 -- Paste without overriding the current register
-vim.keymap.set('x', '<leader>p', '"_dP', { noremap = true })
+vim.keymap.set('x', 'p', [["_dP]], { desc = 'Paste without overwriting register' })
 
 -- Remap 'c' to use the black hole register so it doesn't overwrite the unnamed register
 vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true })
