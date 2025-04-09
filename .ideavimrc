@@ -87,4 +87,5 @@ nnoremap <leader>si :source ~/.ideavimrc<CR>
 " Plugins
 set mini-ai
 Plug 'machakann/vim-highlightedyank'
+Plug 'vim-scripts/argtextobj.vim'
 
