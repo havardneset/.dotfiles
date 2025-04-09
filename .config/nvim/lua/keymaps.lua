@@ -24,6 +24,7 @@ vim.api.nvim_set_keymap('n', '<leader>ec', ':cclose<CR>', { noremap = true, sile
 -- Remap <C-i> so <Tab> doesn't interfere
 vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
 
+-- Map line navigation to easier mappings
 vim.keymap.set({ 'n', 'v', 'o' }, 'gh', '^')
 vim.keymap.set({ 'n', 'v', 'o' }, 'gl', '$')
 vim.keymap.set({ 'n', 'v', 'o' }, 'gj', '%')

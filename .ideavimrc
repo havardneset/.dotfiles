@@ -66,7 +66,7 @@ omap gj %
 map <leader>f :action ReformatCode<CR>
 
 " Map to rename element
-map <leader>r <Action>(RenameElement)
+map <leader>rn <Action>(RenameElement)
 
 " breakpoints
 map <leader>ub <Action>(ToggleLineBreakpoint)
