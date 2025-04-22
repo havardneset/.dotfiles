@@ -83,7 +83,7 @@ map <leader>ep :action GotoPreviousError<CR>
 
 " Source .ideavimrc
 nnoremap <leader>si :source ~/.ideavimrc<CR>
-
+nmap <leader>so :e ~/.ideavimrc<CR>
 " Plugins
 set mini-ai
 Plug 'machakann/vim-highlightedyank'
