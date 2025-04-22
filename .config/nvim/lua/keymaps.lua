@@ -12,9 +12,14 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
 -- Navigate between LSP diagnostics (errors/warnings)
-vim.keymap.set('n', '<leader>en', vim.diagnostic.goto_next, { desc = 'Go to next LSP error' })
-vim.keymap.set('n', '<leader>ep', vim.diagnostic.goto_prev, { desc = 'Go to previous LSP error' })
+vim.keymap.set('n', '<leader>en', function()
+  vim.diagnostic.jump { count = 1, float = true }
+end, { desc = 'Go to next LSP error' })
+vim.keymap.set('n', '<leader>ep', function()
+  vim.diagnostic.jump { count = -1, float = true }
+end, { desc = 'Go to previous LSP error' })
 
 -- Manipulate quickfix list
 vim.api.nvim_set_keymap('n', '<leader>eq', ':cexpr []<CR>', { noremap = true, silent = true })
