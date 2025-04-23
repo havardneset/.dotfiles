@@ -1,11 +1,3 @@
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -18,12 +10,12 @@ vim.keymap.set('n', '<leader>en', function() vim.diagnostic.jump { count = 1, fl
 vim.keymap.set('n', '<leader>ep', function() vim.diagnostic.jump { count = -1, float = true } end, { desc = 'Go to previous LSP error' })
 
 -- Manipulate quickfix list
-vim.api.nvim_set_keymap('n', '<leader>eq', ':cexpr []<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>eo', ':copen<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ec', ':cclose<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>eq', ':cexpr []<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>eo', ':copen<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ec', ':cclose<CR>', { noremap = true, silent = true })
 
 -- Remap <C-i> so <Tab> doesn't interfere
-vim.api.nvim_set_keymap('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
 
 -- Map line navigation to easier mappings
 vim.keymap.set({ 'n', 'v', 'o' }, 'gh', '^')
@@ -34,10 +26,10 @@ vim.keymap.set({ 'n', 'v', 'o' }, 'gj', '%')
 vim.keymap.set('x', 'p', [["_dP]], { desc = 'Paste without overwriting register' })
 
 -- Remap 'c' to use the black hole register so it doesn't overwrite the unnamed register
-vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true })
-vim.api.nvim_set_keymap('n', 'C', '"_C', { noremap = true })
-vim.api.nvim_set_keymap('n', 'cc', '"_cc', { noremap = true })
-vim.api.nvim_set_keymap('v', 'c', '"_c', { noremap = true })
+vim.keymap.set('n', 'c', '"_c', { noremap = true })
+vim.keymap.set('n', 'C', '"_C', { noremap = true })
+vim.keymap.set('n', 'cc', '"_cc', { noremap = true })
+vim.keymap.set('v', 'c', '"_c', { noremap = true })
 
 -- Search and replace word under the cursor.
 vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
@@ -67,9 +59,9 @@ vim.keymap.set('n', '<leader>nl', ':NewLines<CR>')
 
 -- Tab to indent and Shift-Tab to unindent
 -- Normal mode mappings
-map('n', '<Tab>', '>>', { silent = true })
-map('n', '<S-Tab>', '<<', { silent = true })
+vim.keymap.set('n', '<Tab>', '>>', { silent = true })
+vim.keymap.set('n', '<S-Tab>', '<<', { silent = true })
 
 -- Visual mode mappings
-map('v', '<Tab>', '>gv', { silent = true })
-map('v', '<S-Tab>', '<gv', { silent = true })
+vim.keymap.set('v', '<Tab>', '>gv', { silent = true })
+vim.keymap.set('v', '<S-Tab>', '<gv', { silent = true })
