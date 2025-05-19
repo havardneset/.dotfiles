@@ -1,4 +1,6 @@
 # DI Login aliases
+
+alias di="di-cli"
 alias cdev="di aa 2 1 1"
 alias cstg="di aa 2 2 1"
 alias cprod="di aa 2 3 1"
