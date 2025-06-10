@@ -73,7 +73,7 @@ map <leader>ub <Action>(ToggleLineBreakpoint)
 map <leader>us <Action>(ViewBreakpoints)
 map <leader>ur <Action>(Debugger.RemoveAllBreakpoints)
 
-"Run and debug
+" Run and debug
 nnoremap <leader>rr :action Run<CR>
 nnoremap <leader>rd :action Debug<CR>
 nnoremap <leader>rs :action Stop<CR>
@@ -81,12 +81,14 @@ nnoremap <leader>rs :action Stop<CR>
 map <leader>en :action GotoNextError<CR>
 map <leader>ep :action GotoPreviousError<CR>
 
-nmap s <Action>(flash.search)
-xmap s <Action>(flash.search)
+" Use flash plugin for searching
+nmap <CR> <Action>(flash.search)
+xmap <CR> <Action>(flash.search)
 
 " Source .ideavimrc
 nnoremap <leader>si :source ~/.ideavimrc<CR>
 nmap <leader>so :e ~/.ideavimrc<CR>
+
 " Plugins
 set mini-ai
 Plug 'machakann/vim-highlightedyank'
