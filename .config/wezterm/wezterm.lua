@@ -28,22 +28,6 @@ config.hide_tab_bar_if_only_one_tab = true
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
--- Keys
-config.keys = {
-	-- Cmd + Left to move to the beginning of the line
-	{
-		key = "LeftArrow",
-		mods = "CMD",
-		action = wezterm.action.SendKey({ key = "Home" }),
-	},
-	-- Cmd + Right to move to the end of the line
-	{
-		key = "RightArrow",
-		mods = "CMD",
-		action = wezterm.action.SendKey({ key = "End" }),
-	},
-}
-
 -- Remove padding when nvim is running
 local padding = {
 	left = "1cell",
