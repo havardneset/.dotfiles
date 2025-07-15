@@ -41,6 +41,12 @@ nnoremap <C-h> :tabprevious<CR>
 " Map Ctrl+l to move to the right tab
 nnoremap <C-l> :tabnext<CR>
 
+" Tab to indent and Shift-Tab to unindent
+nnoremap <silent> <Tab> >>
+nnoremap <silent> <S-Tab> <<
+vnoremap <silent> <Tab> >gv
+vnoremap <silent> <S-Tab> <gv
+
 " Remap 'c' to prevent it from overwriting the unnamed register
 nnoremap c "_c
 nnoremap C "_C
