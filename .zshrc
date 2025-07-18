@@ -87,6 +87,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Set nvim as default editor for k9s
+export EDITOR=nvim
 export KUBE_EDITOR=nvim
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
