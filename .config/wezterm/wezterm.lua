@@ -36,10 +36,22 @@ local padding = {
 	bottom = "0.5cell",
 }
 
+-- Apps that should have minimal padding
+local minimal_padding_apps = { "^n%-vi%-m%-", "^nvim", "n", "opencode" }
+
 wezterm.on("update-status", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	local title = pane:get_title()
-	if string.find(title, "^n-vi-m-") or title == "n" or title == "nvim" then
+
+	local should_minimize_padding = false
+	for _, pattern in ipairs(minimal_padding_apps) do
+		if title == pattern or title:match(pattern) then
+			should_minimize_padding = true
+			break
+		end
+	end
+
+	if should_minimize_padding then
 		overrides.window_padding = {
 			left = 0,
 			right = 0,
