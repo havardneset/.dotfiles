@@ -1,16 +1,39 @@
 -- Markdown / Checkbox functionality
-vim.api.nvim_create_user_command('ToggleCheckbox', function()
-  local line = vim.api.nvim_get_current_line()
 
+-- Helper function to toggle checkbox on a single line
+local function toggle_checkbox_line(line)
   if line:match '%[ %]' then
-    line = line:gsub('%[ %]', '[x]')
+    return line:gsub('%[ %]', '[x]')
   elseif line:match '%[x%]' then
-    line = line:gsub('%[x%]', '[ ]')
+    return line:gsub('%[x%]', '[ ]')
+  end
+  return line
+end
+
+vim.api.nvim_create_user_command('ToggleCheckbox', function(opts)
+  local start_line, end_line
+  
+  if opts.range > 0 then
+    -- Visual selection mode
+    start_line = opts.line1
+    end_line = opts.line2
+  else
+    -- Single line mode
+    start_line = vim.api.nvim_win_get_cursor(0)[1]
+    end_line = start_line
   end
 
-  -- Set the modified line
-  vim.api.nvim_set_current_line(line)
-end, { desc = 'Toggle checkbox on the current line' })
+  -- Get all lines in the range
+  local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+  
+  -- Toggle checkboxes in each line
+  for i, line in ipairs(lines) do
+    lines[i] = toggle_checkbox_line(line)
+  end
+  
+  -- Set the modified lines back
+  vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, lines)
+end, { desc = 'Toggle checkbox on current line or selection', range = true })
 
 vim.api.nvim_create_user_command('AddCheckbox', function()
   local line = vim.api.nvim_get_current_line()
@@ -37,3 +60,4 @@ end, { desc = 'Add checkbox to current line or next line if already present' })
 
 vim.keymap.set('n', '<leader>ca', ':AddCheckbox<CR>', { desc = 'Add checkbox' })
 vim.keymap.set('n', '<leader>cc', ':ToggleCheckbox<CR>', { desc = 'Toggle checkbox' })
+vim.keymap.set('v', '<leader>cc', ':ToggleCheckbox<CR>', { desc = 'Toggle checkboxes in selection' })
