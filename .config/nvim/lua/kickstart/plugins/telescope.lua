@@ -21,9 +21,7 @@ return {
 
         -- `cond` is a condition used to determine whether this plugin should be
         -- installed and loaded.
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
+        cond = function() return vim.fn.executable 'make' == 1 end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
@@ -66,9 +64,7 @@ return {
             find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
           },
           live_grep = {
-            additional_args = function()
-              return { '--hidden', '-g', '!.git' }
-            end,
+            additional_args = function() return { '--hidden', '-g', '!.git' } end,
           },
         },
         extensions = {
@@ -106,29 +102,35 @@ return {
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      vim.keymap.set('n', '<leader>s/', function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end, { desc = '[S]earch [/] in Open Files' })
+      vim.keymap.set(
+        'n',
+        '<leader>s/',
+        function()
+          builtin.live_grep {
+            grep_open_files = true,
+            prompt_title = 'Live Grep in Open Files',
+          }
+        end,
+        { desc = '[S]earch [/] in Open Files' }
+      )
 
-      vim.keymap.set('n', '<leader>ot', function()
-        builtin.live_grep {
-          cwd = '~/Documents/notes',
-          default_text = '\\[ ]',
-          prompt_title = 'Open tasks',
-        }
-      end, { desc = '[O]pen [T]asks' })
+      vim.keymap.set(
+        'n',
+        '<leader>to',
+        function()
+          builtin.live_grep {
+            cwd = '~/Documents/notes',
+            default_text = '\\[ ]',
+            prompt_title = 'Open tasks',
+          }
+        end,
+        { desc = '[O]pen [T]asks' }
+      )
 
-      vim.keymap.set('n', '<leader>sc', function()
-        builtin.find_files { cwd = '~/.config' }
-      end, { desc = '[S]earch [C]onfig' })
+      vim.keymap.set('n', '<leader>sc', function() builtin.find_files { cwd = '~/.config' } end, { desc = '[S]earch [C]onfig' })
 
       -- Shortcut for searching your Neovim configuration files
-      vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
+      vim.keymap.set('n', '<leader>sn', function() builtin.find_files { cwd = vim.fn.stdpath 'config' } end, { desc = '[S]earch [N]eovim files' })
     end,
   },
 }
