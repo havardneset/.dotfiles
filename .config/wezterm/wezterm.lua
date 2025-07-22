@@ -71,6 +71,11 @@ config.keys = {
 		mods = "CMD",
 		action = wezterm.action.CloseCurrentTab({ confirm = false }),
 	},
+	{
+		key = "o",
+		mods = "CTRL",
+		action = wezterm.action.SendString("cdi\r"),
+	},
 }
 
 return config
