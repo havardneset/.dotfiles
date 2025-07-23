@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 local config = wezterm.config_builder()
 
 -- FPS
@@ -18,6 +19,9 @@ config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- Window
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
+
+-- Default workspace
+config.default_workspace = "main"
 
 -- Tab Bar
 config.tab_bar_at_bottom = true
@@ -77,5 +81,32 @@ config.keys = {
 		action = wezterm.action.SendString("cdi\r"),
 	},
 }
+
+-- Create permanent tabs on startup
+wezterm.on("gui-startup", function()
+	local tab, pane, window = mux.spawn_window({
+		workspace = "main",
+		cwd = wezterm.home_dir .. "/Documents/notes",
+	})
+
+	-- Tab 1: Notes
+	tab:set_title("notes")
+	pane:send_text("nvim .\n")
+
+	-- Tab 2: Opencode
+	local tab2, pane2 = window:spawn_tab({
+		cwd = wezterm.home_dir,
+	})
+	tab2:set_title("opencode")
+	pane2:send_text("opencode\n")
+
+	-- Tab 3: Shell
+	window:spawn_tab({
+		cwd = wezterm.home_dir,
+	})
+
+	-- Focus back to nvim tab
+	tab:activate()
+end)
 
 return config
