@@ -77,7 +77,7 @@ config.keys = {
 	},
 	{
 		key = "o",
-		mods = "CTRL",
+		mods = "CMD",
 		action = wezterm.action.SendString("cdi\r"),
 	},
 }
