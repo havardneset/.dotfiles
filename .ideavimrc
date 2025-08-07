@@ -1,9 +1,6 @@
 
 let mapleader = " "
 
-" Set relative line numbers
-set relativenumber number
-
 " Set clipboard to system clipboard
 set clipboard=unnamedplus
 
