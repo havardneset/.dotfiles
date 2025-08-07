@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   {
     'folke/flash.nvim',
@@ -6,6 +7,9 @@ return {
     opts = {
       jump = {
         autojump = true,
+      },
+      label = {
+        uppercase = false,
       },
     },
     init = function()
