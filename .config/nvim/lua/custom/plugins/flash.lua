@@ -3,7 +3,11 @@ return {
     'folke/flash.nvim',
     event = 'VeryLazy',
     ---@type Flash.Config
-    opts = {},
+    opts = {
+      jump = {
+        autojump = true,
+      },
+    },
     init = function()
       -- Create global mapping for <CR>
       vim.keymap.set({ 'n', 'x', 'o' }, '<CR>', function() require('flash').jump() end, { desc = 'Flash' })
