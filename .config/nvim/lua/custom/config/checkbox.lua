@@ -12,7 +12,7 @@ end
 
 vim.api.nvim_create_user_command('ToggleCheckbox', function(opts)
   local start_line, end_line
-  
+
   if opts.range > 0 then
     -- Visual selection mode
     start_line = opts.line1
@@ -25,12 +25,12 @@ vim.api.nvim_create_user_command('ToggleCheckbox', function(opts)
 
   -- Get all lines in the range
   local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
-  
+
   -- Toggle checkboxes in each line
   for i, line in ipairs(lines) do
     lines[i] = toggle_checkbox_line(line)
   end
-  
+
   -- Set the modified lines back
   vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, lines)
 end, { desc = 'Toggle checkbox on current line or selection', range = true })
@@ -58,6 +58,6 @@ vim.api.nvim_create_user_command('AddCheckbox', function()
   vim.cmd 'startinsert!'
 end, { desc = 'Add checkbox to current line or next line if already present' })
 
-vim.keymap.set('n', '<leader>ca', ':AddCheckbox<CR>', { desc = 'Add checkbox' })
+vim.keymap.set('n', '<leader>ci', ':AddCheckbox<CR>', { desc = 'Add checkbox' })
 vim.keymap.set('n', '<leader>cc', ':ToggleCheckbox<CR>', { desc = 'Toggle checkbox' })
 vim.keymap.set('v', '<leader>cc', ':ToggleCheckbox<CR>', { desc = 'Toggle checkboxes in selection' })
