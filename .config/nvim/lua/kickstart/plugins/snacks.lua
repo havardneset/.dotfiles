@@ -11,6 +11,9 @@ return {
       words = { enabled = true },
       picker = {
         enabled = true,
+        layout = {
+          preset = 'bottom',
+        },
         win = {
           input = {
             keys = {
@@ -45,10 +48,8 @@ return {
       vim.keymap.set('n', '<leader>sf', function() pick.files() end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sr', function() pick.git_files() end, { desc = '[S]earch [R]epo' })
       vim.keymap.set('n', '<leader>ss', function() pick.pickers() end, { desc = '[S]earch [S]elect Picker' })
-      vim.keymap.set('n', '<leader>sw', function() pick.grep_word() end, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', function() pick.grep() end, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', function() pick.diagnostics() end, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>s.', function() pick.recent() end, { desc = '[S]earch Recent Files ("." for repeat)' })
 
       -- Smart picker combining buffers, recent files, and all files with frecency
       vim.keymap.set('n', '<leader><leader>', function() pick.smart() end, { desc = '[ ] Smart file finder (buffers + recent + files)' })
