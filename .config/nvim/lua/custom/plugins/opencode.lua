@@ -17,8 +17,8 @@ return {
       'hrsh7th/nvim-cmp',
 
       -- Optional, for file mentions picker, pick only one
-      -- 'folke/snacks.nvim',
-      'nvim-telescope/telescope.nvim',
+      'folke/snacks.nvim',
+      -- 'nvim-telescope/telescope.nvim',
       -- 'ibhagwan/fzf-lua',
       -- 'nvim_mini/mini.nvim',
     },
