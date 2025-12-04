@@ -17,19 +17,10 @@ return {
 
     -- use a release tag to download pre-built binaries
     version = 'v0.*',
-    -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-    -- build = 'cargo build --release',
-    -- If you use nix, you can build from source using latest nightly rust with:
-    -- build = 'nix run .#build-plugin',
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      -- 'default' for mappings similar to built-in completion
-      -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-      -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-      -- see the "default configuration" section below for full documentation on how to define
-      -- your own keymap.
       keymap = {
         preset = 'default',
         ['<CR>'] = { 'accept', 'fallback' },
@@ -38,7 +29,7 @@ return {
       },
 
       appearance = {
-        -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+        -- Sets the fallback highlight groups to blink.cmp's default groups
         -- Useful for when your theme doesn't support blink.cmp
         -- will be removed in a future release
         use_nvim_cmp_as_default = true,
@@ -51,8 +42,6 @@ return {
       -- elsewhere in your config, without redefining it, via `opts_extend`
       sources = {
         default = { 'lsp', 'path', 'buffer', 'lazydev' },
-        -- optionally disable cmdline completions
-        -- cmdline = {},
         providers = {
           lazydev = {
             name = 'LazyDev',
@@ -65,6 +54,23 @@ return {
 
       -- experimental signature help support
       signature = { enabled = true },
+
+      -- cmdline completion configuration
+      cmdline = {
+        enabled = true,
+        keymap = {
+          preset = 'inherit', -- inherit keymaps from main config
+          ['<CR>'] = {}, -- disable Enter to accept in cmdline, just execute the command
+        },
+        completion = {
+          menu = {
+            auto_show = function(ctx)
+              -- Only auto-show for commands (:), not for search (/, ?)
+              return vim.fn.getcmdtype() == ':'
+            end,
+          },
+        },
+      },
     },
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it
