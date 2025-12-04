@@ -2,9 +2,7 @@ return {
   {
     'saghen/blink.cmp',
     lazy = false, -- lazy loading handled internally
-    -- optional: provides snippets for the snippet source
     dependencies = {
-      'rafamadriz/friendly-snippets',
       {
         'folke/lazydev.nvim',
         ft = 'lua',
@@ -34,8 +32,7 @@ return {
       -- your own keymap.
       keymap = {
         preset = 'default',
-        ['<C-l>'] = { 'snippet_forward', 'fallback' },
-        ['<C-h>'] = { 'snippet_backward', 'fallback' },
+        ['<CR>'] = { 'accept', 'fallback' },
         ['<Tab>'] = { 'select_next', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
       },
@@ -47,13 +44,13 @@ return {
         use_nvim_cmp_as_default = true,
         -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono'
+        nerd_font_variant = 'mono',
       },
 
       -- default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, via `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
+        default = { 'lsp', 'path', 'buffer', 'lazydev' },
         -- optionally disable cmdline completions
         -- cmdline = {},
         providers = {
@@ -67,11 +64,11 @@ return {
       },
 
       -- experimental signature help support
-      signature = { enabled = true }
+      signature = { enabled = true },
     },
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it
-    opts_extend = { "sources.default" }
+    opts_extend = { 'sources.default' },
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
